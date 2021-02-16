@@ -59,7 +59,7 @@ $(document).ready(function () {
 
   // change-navigation-color
   $(window).scroll(function () {
-    if ($(document).scrollTop() > 200) {
+    if ($(document).scrollTop() > 0) {
       $(".navbar").addClass("nav__color__change");
     } else {
       $(".navbar").removeClass("nav__color__change");
@@ -71,12 +71,29 @@ $(document).ready(function () {
   scrollLink.click(function (e) {
     let elem = $(this.hash)
     if (elem.length) {
+      let offset;
+
+      switch (this.hash) {
+        case '#about':
+          offset = 150;
+          break;
+        case '#portfolio':
+          offset = 25;
+          break;
+        case '#skill':
+          offset = 25;
+          break;
+        default:
+          offset = 0;
+          break;
+      }
+
       e.preventDefault();
-      $("body,html").animate(
+      $('body,html').animate(
         {
-          scrollTop: elem.offset().top,
+          scrollTop: elem.offset().top - offset,
         },
-        1000
+        1000,
       );
     }
   });
