@@ -1,9 +1,11 @@
 .skill {
   position: relative;
   padding: 100px 0 0;
+
   @include desktop {
     padding: 100px 0;
   }
+
   &__background_shape {
     position: absolute;
     bottom: 2%;
@@ -38,13 +40,25 @@
     align-items: center;
     justify-content: space-between;
     text-align: center;
+
+    @include desktop {
+      margin-bottom: 16px;
+    }
+
   }
   &__image {
     flex: 2;
     width: 72px;
 
+    &--web3-react,
+    &--Hardhat {
+      width: 96px;
+    }
+
     &--Jinja,
-    &--Sass {
+    &--Sass,
+    &--React.Router,
+    &--Redux.Saga {
       width: 128px;
     }
 
